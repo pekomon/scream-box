@@ -37,6 +37,7 @@ public class ScreamBoxFragment extends Fragment {
     @Override
     public void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRetainInstance(true);
         mScreamBox = new ScreamBox(getActivity());
     }
 
@@ -54,6 +55,12 @@ public class ScreamBoxFragment extends Fragment {
         binding.recyclerView.setAdapter(new ScreamAdapter(mScreamBox.getSounds()));
 
         return binding.getRoot();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mScreamBox.releaseSoundPool();
     }
 
     private class ScreamHolder extends RecyclerView.ViewHolder {
