@@ -63,6 +63,12 @@ public class ScreamBoxFragment extends Fragment {
         private ScreamHolder(ListItemScreamBinding pBinding) {
             super(pBinding.getRoot());
             mBinding = pBinding;
+            mBinding.setViewModel(new ScreamViewModel(mScreamBox));
+        }
+
+        public void bind(Sound pSound) {
+            mBinding.getViewModel().setSound(pSound);
+            mBinding.executePendingBindings();
         }
     }
 
@@ -86,6 +92,8 @@ public class ScreamBoxFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull final ScreamHolder holder, final int position) {
 
+            Sound sound = mSounds.get(position);
+            holder.bind(sound);
         }
 
         @Override
