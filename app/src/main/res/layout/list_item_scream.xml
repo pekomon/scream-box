@@ -9,6 +9,7 @@
     </data>
 
     <Button
+        style="@style/ScreamBoxButton.Strong"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:onClick="@{() -> viewModel.onButtonClicked()}"
