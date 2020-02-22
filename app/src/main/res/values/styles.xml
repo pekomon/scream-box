@@ -12,8 +12,8 @@
 
     </style>
 
-    <style name="ScreamBoxButton" parent="Widget.AppCompat.Button">
-        <item name="android:background">@color/dark_blue</item>
+    <style name="ScreamBoxButton" parent="android:style/Widget.Holo.Button">
+        <item name="android:background">@drawable/button</item>
     </style>
 
 </resources>
